@@ -1,0 +1,40 @@
+ This is a readme file for the python codes developed
+In support of the linear fits to Poisson data with the
+Cash statistic
+References: Bonamente and Spence (2022) 
+'A semi--analytical solution to the maximum--likelihood fit of 
+Poisson data to a linear model using the Cash statistic'
+Journal of Applied Statistics, 49, 3, 522-552
+https://doi.org/10.1080/02664763.2020.1820960
+
+Covariance matrix was developed in Bonamente (2023) submitted
+'Linear regression for Poisson count data: 
+A new semi--analytical method with applications to COVID-19 events'
+
+The main function is 
+
+   bestFitLinear(data,hasGap,dataGap)
+
+where data has the format specified in the test case below.
+If the data have "gaps", they can be specified with the additional
+parameter. See test case #2 for an example, which is the general
+case of data with non-uniform binning and gaps.
+
+The main function implementing an analytical form for the
+covariance matrix in the linear fit is in
+
+   covMatrixCT(lambdaHat, aHat,data)
+
+where CT stands for Cameron and Trivedi, authors of the book
+"Regression Analysis of Count Data" 2nd Ed. Cambridge (2013)
+
+
+Test cases: 
+python3 cstatLinear.py xbinCovidDeaths.dat dataCovidperDayDeaths.txt paramsCovidDeaths.txt
+python3 cstatLinear.py xbinCovidDeaths1-2.dat dataCovidperDayDeaths1-2.txt paramsCovidDeaths1-2.txt
+
+
+
+----------------
+Note: these codes were updated from those used in the
+original 2022 paper.
